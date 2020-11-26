@@ -61,7 +61,7 @@ public class FalsePositionMain {
         System.out.print("# of Iterations = ");
         stopCrit.add(stoppingCrit.nextDouble());
 
-        System.out.print("|Error| = ");
+        System.out.print("|Error| % = ");
         stopCrit.add(stoppingCrit.nextDouble());
 
         System.out.print("|f(xr)| = ");
