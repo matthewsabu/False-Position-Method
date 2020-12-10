@@ -124,8 +124,9 @@ public class FalsePositionMain {
                     approxRoot = Double.parseDouble(df.format(xui));  //upperAsymp
                 }
                 System.out.println("\nThe equation's root is approximately " + approxRoot);
-            } 
-            System.out.println("\nThe equation's root is " + approxRoot);
+            } else { 
+                System.out.println("\nThe equation's root is " + approxRoot);
+            }
         }  
         return;
     }
