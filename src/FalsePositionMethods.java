@@ -52,21 +52,27 @@ public class FalsePositionMethods implements FalsePositionInterface{
         double xr;
         double numerator = (xu*fxl)-(xl*fxu);
         double denominator = (fxl-fxu);
+        double truncatedXr = 0;
         if(numerator == 0 || denominator == 0) xr = 0;
         else xr = numerator/denominator;
-        DecimalFormat df = new DecimalFormat("0.00000");
-        if(xr > 0) df.setRoundingMode(RoundingMode.FLOOR);
-        else df.setRoundingMode(RoundingMode.CEILING);
-        double truncatedXr = Double.parseDouble(df.format(xr));
+        if(xr != 0){
+            DecimalFormat df = new DecimalFormat("0.00000");
+            if(xr > 0) df.setRoundingMode(RoundingMode.FLOOR);
+            else df.setRoundingMode(RoundingMode.CEILING);
+            truncatedXr = Double.parseDouble(df.format(xr));
+        }
         return truncatedXr;
     }
     
     @Override
     public double getE(double xri, double xr) {
         double e = Math.abs(((xri - xr)/xri) * 100);
-        DecimalFormat df = new DecimalFormat("0.00000");
-        df.setRoundingMode(RoundingMode.FLOOR);
-        double truncatedE = Double.parseDouble(df.format(e));
+        double truncatedE = 0;
+        if(e != 0) {
+            DecimalFormat df = new DecimalFormat("0.00000");
+            df.setRoundingMode(RoundingMode.FLOOR);
+            truncatedE = Double.parseDouble(df.format(e));
+        }
         return truncatedE;
     }
     
